@@ -54,13 +54,14 @@ void IMPNM_F(WriteBinary,Sc)(int handle, boolean conflict, const unsigned char* 
 	MACROS
  *******************************************************************************/
 
-
+// static handle
 // module == this
 #define IP_STAT_WRITE_DISC_INT_SC(name,descriptor,conflict,value)   static int name = IMPNM(AddSignalSc)(this,#name,IMPNM(Discrete),IMPNM(Integer),#descriptor);IpWriteIntSc(name, conflict, value);
 #define IP_STAT_WRITE_DISC_FLOAT_SC(name,descriptor,conflict,value) static int name = IMPNM(AddSignalSc)(this,#name,IMPNM(Discrete),IMPNM(Float),#descriptor);IpWriteFloatSc(name, conflict, value);
 #define IP_STAT_WRITE_DISC_EVENT_SC(name,descriptor,conflict,value) static int name = IMPNM(AddSignalSc)(this,#name,IMPNM(Discrete),IMPNM(Event),#descriptor);IpWriteEventSc(name, conflict, value);
 #define IP_STAT_WRITE_DISC_BINARY_SC(name,descriptor,conflict,value, length) static int name = IMPNM(AddSignalSc)(this,#name,IMPNM(Discrete),IMPNM(Binary),#descriptor);IpWriteBinarySc(name, conflict, value,length);
 
+// static handle
 // explicit module
 #define IP_STAT_WRITE_DISC_INT_SCM(module,name,descriptor,conflict,value)   static int name = IMPNM(AddSignalSc)(module,#name,IMPNM(Discrete),IMPNM(Integer),#descriptor);IpWriteIntSc(name, conflict, value);
 #define IP_STAT_WRITE_DISC_FLOAT_SCM(module,name,descriptor,conflict,value) static int name = IMPNM(AddSignalSc)(module,#name,IMPNM(Discrete),IMPNM(Float),#descriptor);IpWriteFloatSc(name, conflict, value);
@@ -68,11 +69,14 @@ void IMPNM_F(WriteBinary,Sc)(int handle, boolean conflict, const unsigned char* 
 #define IP_STAT_WRITE_DISC_BINARY_SCM(module,name,descriptor,conflict,value, length) static int name = IMPNM(AddSignalSc)(module,#name,IMPNM(Discrete),IMPNM(Binary),#descriptor);IpWriteBinarySc(name, conflict, value,length);
 
 // using global handles table
+// module == this
 #define IP_TABL_WRITE_DISC_INT_SC(name,descriptor,conflict,value)    IpWriteIntSc(IMPNM(AssertSignalSc)(this,#name,IMPNM(Discrete),IMPNM(Integer),#descriptor), conflict, value);
 #define IP_TABL_WRITE_DISC_FLOAT_SC(name,descriptor,conflict,value)  IpWriteFloatSc(IMPNM(AssertSignalSc)(this,#name,IMPNM(Discrete),IMPNM(Float),#descriptor), conflict, value);
 #define IP_TABL_WRITE_DISC_EVENT_SC(name,descriptor,conflict,value)  IpWriteEventSc(IMPNM(AssertSignalSc)(this,#name,IMPNM(Discrete),IMPNM(Event),#descriptor), conflict, value);
 #define IP_TABL_WRITE_DISC_BINARY_SC(name,descriptor,conflict,value, length)  IpWriteBinarySc(IMPNM(AssertSignalSc)(this,#name,IMPNM(Discrete),IMPNM(Binary),#descriptor), conflict, value,length);
 
+// using global handles table
+// explicit module
 #define IP_TABL_WRITE_DISC_INT_SCM(module,name,descriptor,conflict,value)    IpWriteIntSc(IMPNM(AssertSignalSc)(module,#name,IMPNM(Discrete),IMPNM(Integer),#descriptor), conflict, value);
 #define IP_TABL_WRITE_DISC_FLOAT_SCM(module,name,descriptor,conflict,value)  IpWriteFloatSc(IMPNM(AssertSignalSc)(module,#name,IMPNM(Discrete),IMPNM(Float),#descriptor), conflict, value);
 #define IP_TABL_WRITE_DISC_EVENT_SCM(module,name,descriptor,conflict,value)  IpWriteEventSc(IMPNM(AssertSignalSc)(module,#name,IMPNM(Discrete),IMPNM(Event),#descriptor), conflict, value);
