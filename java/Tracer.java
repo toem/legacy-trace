@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012-2014  toem and others
+ * Copyright (c) 2012-2015  toem and others
  * All rights reserved. This source code and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -39,8 +39,9 @@ public class Tracer {
     protected synchronized void setOutput(OutputStream output) {
         this.output = output;
         try {
-            if (output != null)
+            if (output != null){
                 output.write(Impulse.SYNC.getBytes("UTF-8"));
+            }
         } catch (IOException e) {
         }
     }
